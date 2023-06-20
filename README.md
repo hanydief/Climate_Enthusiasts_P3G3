@@ -8,6 +8,7 @@ This project provides valuable insights into the ongoing changes in our climate.
 - Nour Balhaj -- (@nourbalhaj)
 - Alejandro Gutierrez -- (@alejfxguti)
 - Raymond Darrough -- (@raymonddarrough)
+- João Fortunato -- (@joaopedrofortunato)
 - Hany Dief -- (@hanydief)
 
 ## Google Slides Presentation Link
