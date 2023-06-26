@@ -4,11 +4,12 @@ This project provides valuable insights into the ongoing changes in our climate.
 
 
 ## Contributors
-- Beethoven Sabar -- (@bsabar)
 - Nour Balhaj -- (@nourbalhaj)
+- Hany Dief -- (@hanydief)
+- Beethoven Sabar -- (@bsabar)
 - Alejandro Gutierrez -- (@alejfxguti)
 - Raymond Darrough -- (@raymonddarrough)
 - João Fortunato -- (@joaopedrofortunato)
-- Hany Dief -- (@hanydief)
+
 
 ## Google Slides Presentation Link
