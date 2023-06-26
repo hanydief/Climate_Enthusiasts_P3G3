@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Climate Change - Apache ECharts </title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+
+    <!-- <title>Annual Temperature Race Bar Chart</title> -->
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/race-bar"></script>
+    <script src='https://cdn.plot.ly/plotly-2.24.1.min.js'></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js'></script>
+
+</head>
+
+
+
+<body>
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-12 jumbotron text-center">
+                <h1>Climate Change Dashboard</h1>
+                <div style="height: 200px;"></div>
+                <div id="tooltip" style="display: none;">
+                    <!-- <p>Use the interactive charts below to explore the dataset</p> -->
+                </div>
+            </div>
+
+            <!-- DROPDOWN MENU & DEMOGRAPHIC -->
+            <!-- <div class="row">
+                <div class="col-md-2">
+                <div class="well">
+                    <h5>Test Subject ID No.:</h5>
+                    <select id="selDataset" onchange="optionChanged(this.value)"></select>
+                </div>
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Demographic Info</h3>
+                    </div>
+                    <div id="sample-metadata" class="panel-body"></div>
+                </div>
+            </div> -->
+
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>Top 10 Temperature</h3>
+                    <div id="chart-temp"></div>
+                    <div id="chart-temp" style="height: 100px;"></div>
+                    <div id="tooltip" style="display: none;"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>Top 10 CO2</h3>
+                    <div id="chart-co2"></div>
+                    <div id="chart-co2" style="height: 100px;"></div>
+                    <div id="tooltip" style="display: none;"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h3>Top 10 Humidity</h3>
+                    <div id="chart-humidity"></div>
+                    <div id="chart-humidity" style="height: 100px;"></div>
+                    <div id="tooltip" style="display: none;"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h3>Top 10 Sea Level Rise</h3>
+                    <div id="chart-sealevel"></div>
+                    <div id="chart-sealevel" style="height: 100px;"></div>
+                    <div id="tooltip" style="display: none;"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h3>RACE BAR FOR TEMPERATURES</h3>
+                    <div id="chart-temperature"></div>
+                    <div id="chart-temperature" style="height: 100px;"></div>
+                    <div id="tooltip" style="display: none;">
+                        <img id="flag" src="">
+                        <span id="country"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h3>RACE BAR FOR CO2_EMISSIONS</h3>
+                    <div id="chart-racebarco2"></div>
+                    <div id="chart-racebarco2" style="height: 100px;"></div>
+                    <div id="tooltip" style="display: none;">
+                        <img id="flag" src="">
+                        <span id="country"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <h3>PLOTLY MAP FOR CO2_EMISSIONS</h3>
+                    <div id="map-pltmapco2"></div>
+                    <div id="map-pltmapco2" style="height: 100px;"></div>
+                    <div id="tooltip" style="display: none;"></div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <h3>TEMPERATURE RACE LINE</h3>
+                    <div id="raceline-temp"></div>
+                    <div id="raceline-temp" style="height: 100px;"></div>
+                    <div id="tooltip" style="display: none;"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://fastly.jsdelivr.net/npm/echarts@5.4.2/dist/echarts.min.js"></script>
+    <script src="https://fastly.jsdelivr.net/npm/jquery"></script>
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+
+</body>
+
+</html>

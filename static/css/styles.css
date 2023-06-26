@@ -1,0 +1,269 @@
+/****************************************/
+
+
+/************* temperature **************/
+
+
+/****************************************/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#chart-temp {
+    position: relative;
+    text-align: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+h1 {
+    width: 500px;
+    margin: 0 auto;
+    background: skyblue;
+    text-align: center
+}
+
+h3 {
+    width: 300px;
+    margin: 0 auto;
+    background: lightgray;
+    text-align: center
+}
+
+
+/****************************************/
+
+
+/*********** co2_emissions **************/
+
+
+/****************************************/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#chart-co2 {
+    position: relative;
+    text-align: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+h1 {
+    width: 500px;
+    margin: 0 auto;
+    background: skyblue;
+    text-align: center
+}
+
+h3 {
+    width: 300px;
+    margin: 0 auto;
+    background: lightgray;
+    text-align: center
+}
+
+
+/****************************************/
+
+
+/************** humidity ****************/
+
+
+/****************************************/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#chart-humidity {
+    position: relative;
+    text-align: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+h1 {
+    width: 500px;
+    margin: 0 auto;
+    background: skyblue;
+    text-align: center
+}
+
+h3 {
+    width: 300px;
+    margin: 0 auto;
+    background: lightgray;
+    text-align: center
+}
+
+
+/****************************************/
+
+
+/************** sealevel ****************/
+
+
+/****************************************/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#chart-sealevel {
+    position: relative;
+    text-align: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+h1 {
+    width: 500px;
+    margin: 0 auto;
+    background: skyblue;
+    text-align: center
+}
+
+h3 {
+    width: 300px;
+    margin: 0 auto;
+    background: lightgray;
+    text-align: center
+}
+
+
+/****************************************/
+
+
+/********* temperature race bar chart ***********/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#chart-temperature {
+    position: relative;
+    text-align: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+h1 {
+    width: 500px;
+    margin: 0 auto;
+    background: skyblue;
+    text-align: center
+}
+
+h3 {
+    width: 300px;
+    margin: 0 auto;
+    background: lightgray;
+    text-align: center
+}
+
+
+/****************************************/
+
+
+/********* CO2_Emissions race bar chart ***********/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#chart-racebarco2 {
+    position: relative;
+    text-align: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+h1 {
+    width: 500px;
+    margin: 0 auto;
+    background: skyblue;
+    text-align: center
+}
+
+h3 {
+    width: 300px;
+    margin: 0 auto;
+    background: lightgray;
+    text-align: center
+}
+
+
+/****************************************/
+
+
+/********* CO2_Emissions Plotly Map ***********/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#map-pltmapco2 {
+    position: relative;
+    text-align: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+h1 {
+    width: 500px;
+    margin: 0 auto;
+    background: skyblue;
+    text-align: center
+}
+
+h3 {
+    width: 300px;
+    margin: 0 auto;
+    background: lightgray;
+    text-align: center
+}
+
+
+/****************************************/
+
+
+/************* temperature RACE LINE**************/
+
+
+/****************************************/
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#raceline-temp {
+    position: relative;
+    text-align: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+h1 {
+    width: 500px;
+    margin: 0 auto;
+    background: skyblue;
+    text-align: center
+}
+
+h3 {
+    width: 300px;
+    margin: 0 auto;
+    background: lightgray;
+    text-align: center
+}
