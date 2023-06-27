@@ -26,16 +26,14 @@ https://docs.google.com/presentation/d/1iqDcU6FGP9ofsdUX73cQ_7jqZDb_SMMXgz0V0N04
 
 ## Installation
 
-1. Clone the repository.
-2. Install the required dependencies using the following command: `pip install`
-3. Set up the database connection:
-  - If using a local PostgreSQL database:
-    - Create a PostgreSQL database named 'P3-Climate_Data'.
-    - Update the database connection string in the Flask app (`app.py`) to match your local database credentials.
-  - If using a cloud PostgreSQL database (ElephantSQL):
-    - Update the database connection string in the Flask app (`app.py`) to match your ElephantSQL database credentials.
-4. Run the Flask app using the following command: `python P3_Flask.py`
-5. Access the flask application in your browser at `http://localhost:5000`.
+1. Clone the repository to your local machine.
+2. Make sure you have PostgreSQL installed and running.
+3. Create a new PostgreSQL database using pgAdmin and name it `P3-Climate_Data`.
+  - Set up the database by running the necessary SQL scripts (not provided in this repository).
+  - You can use either a local PostgreSQL instance or a cloud-based instance (ElephantSQL). The connection details for both options are included in the code, and you can choose which engine to use by commenting/uncommenting the respective lines.
+4. Install the required Python packages by running pip install for packages mentioned above.
+5. Run the Flask application using `python P3_Flask.py`.
+6. Open your web browser and navigate to http://localhost:5000 to access the Climate App.
 
 ## Functionality
 
