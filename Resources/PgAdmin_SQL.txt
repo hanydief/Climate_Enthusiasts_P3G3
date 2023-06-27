@@ -33,6 +33,30 @@ FROM climate_data;
 -- FROM climate_data
 -- ORDER BY year, country;
 
+
+--------------------******* selected countries avg temp ***********-----------
+-- Querry to get selected countries avg temp
+SELECT avg(temperature) AS temperature, country, year
+FROM climate_data
+GROUP BY country, year 
+ORDER BY year, country;
+ALTER TABLE climate_data
+ALTER COLUMN temperature TYPE FLOAT;
+ALTER TABLE climate_data
+ALTER COLUMN year TYPE INTEGER;
+
+--------------------******* selected countries avg co2 ***********-----------
+-- Querry to get selected countries avg temp
+SELECT avg(CO2_Emissions) AS CO2_Emissions, country, year
+FROM climate_data
+GROUP BY country, year 
+ORDER BY year, country;
+ALTER TABLE climate_data
+ALTER COLUMN CO2_Emissions TYPE FLOAT;
+ALTER TABLE climate_data
+ALTER COLUMN year TYPE INTEGER;
+
+
 ----------********   temperature  ********------------
 -- Querry to get min & max temp per year for each country and location
 SELECT year, country, location, min(temperature), max(temperature), avg(temperature)

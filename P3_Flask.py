@@ -105,8 +105,10 @@ def get_temperatures():
     with engine.connect() as connection:
         query=text("""SELECT avg(temperature) AS temperature, country, year
                 FROM climate_data
-                GROUP BY year, country
-                ORDER BY year, temperature, country""")
+                GROUP BY year, country 
+                HAVING country IN ('Finland','France','Germany','Iceland','Norway','Poland','Russia','United Kingdom')
+                ORDER BY year
+                """)
 
         # query=text("SELECT year, country, avg(temperature) as temperature FROM climate_data GROUP BY year, country ORDER BY year, country, temperature DESC ")
         result = connection.execute(query).fetchall()
