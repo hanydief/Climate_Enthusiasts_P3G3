@@ -635,8 +635,8 @@ function raceLineTemp() {
                     type: 'filter',
                     config: {
                         and: [
-                            { dimension: 'Year', gte: 2000 },
-                            { dimension: 'Country', '=': country }
+                            { dimension: 'year', gte: 2000 },
+                            { dimension: 'country', '=': country }
                         ]
                     }
                 }
@@ -683,7 +683,9 @@ function raceLineTemp() {
                 trigger: 'axis'
             },
             xAxis: {
-                type: 'category',
+                // type: 'category',
+                min: 2000,
+                max: 2023,
                 nameLocation: 'middle',
                 name: 'Year'
             },
