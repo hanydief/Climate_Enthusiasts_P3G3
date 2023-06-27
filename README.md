@@ -49,19 +49,15 @@ The flask application provides the following routes to visualize climate data:
 - `/racebarco`: Displays a race bar chart of the average CO2 emissions by country and year.
 - `/pltmapco`: Displays a map chart of the average CO2 emissions by country.
 
-## Folder Structure
-
-The project's folder structure is as follows:
-
 ## Project Structure
-`P3_Flask.py:` The main Flask application file that handles routing and serves the webpages.
-`templates/index.html:` The HTML template file that contains the structure and layout of the dashboard.
-`static/css/styles.css:` The CSS file that defines the styles for the dashboard.
-`static/js/app.js:` The JavaScript file that contains the logic for data processing and chart rendering.
-`Resources/:* Directory containing the climate change dataset files.
-`P3_CLimate_Data_V3.sql:` SQL to create Climate Change Database.
-`P3_data_cleaningV3.ipynb:` Pandas jupyter notebook data prep and initial visualizations.
-`Outputs_CSV_&_Json/:` Directory containing outputs of jupyter notebook data prep and initial visualization.
+`P3_Flask.py:` The main Flask application file that handles routing and serves the webpages. \
+`templates/index.html:` The HTML template file that contains the structure and layout of the dashboard. \
+`static/css/styles.css:` The CSS file that defines the styles for the dashboard. \
+`static/js/app.js:` The JavaScript file that contains the logic for data processing and chart rendering. \
+`Resources/:* Directory containing the climate change dataset files. \
+`P3_CLimate_Data_V3.sql:` SQL to create Climate Change Database. \
+`P3_data_cleaningV3.ipynb:` Pandas jupyter notebook data prep and initial visualizations. \
+`Outputs_CSV_&_Json/:` Directory containing outputs of jupyter notebook data prep and initial visualization. 
 
 ## License
 
