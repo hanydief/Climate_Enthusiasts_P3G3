@@ -1,3 +1,4 @@
+
 import os
 import plotly
 from flask import Flask, jsonify, render_template, send_from_directory
@@ -7,6 +8,7 @@ import json
 from bson.json_util import dumps
 
 app = Flask(__name__)
+
 # CORS(app)
 
 # Create the SQLAlchemy engine 
@@ -24,11 +26,13 @@ engine = create_engine('postgresql://postgres:Temo1632009$@localhost:5432/P3-Cli
 def favicon():
     return send_from_directory(os.path.join(app.root_path,'static'),'favicon.ico',mimetype='image/vnd.microsoft.icon')
 
+
 # Create a route to display the climate data
 @app.route('/')
 def display_climate_data():
     # Execute a SQL query using the engine
     with engine.connect() as connection:
+
             
         return render_template('indexh.html')
     
@@ -52,10 +56,30 @@ def temp_chart():
     
 
 # Create a route to display the co2 data    
+
+               
+        return render_template('index.html')
+    
+
+@app.route('/temperature')
+def temperature_chart():
+    # Execute a SQL query using the engine
+    with engine.connect() as connection:
+        query = text("SELECT year, avg(temperature) as temperature FROM climate_data GROUP BY year ORDER BY year ASC")
+        result = connection.execute(query).fetchall()
+        # Fetch all rows and convert them to a list of dictionaries
+        data = []
+        for row in result:
+            data.append(dict(row._asdict()))
+        
+        return data
+       
+
 @app.route('/co2')
 def co2_emissions_chart():
     # Execute a SQL query using the engine
     with engine.connect() as connection:
+
         query = text("SELECT year, country, avg(co2_emissions) as co2_emissions FROM climate_data GROUP BY year, country ORDER BY co2_emissions DESC LIMIT 10")
         result = connection.execute(query).fetchall()
         # Fetch all rows and convert them to a list of dictionaries
@@ -182,6 +206,7 @@ def get_pltmapco2():
 
 
     
+
 
 if __name__ == '__main__':
     app.run(debug=True)
