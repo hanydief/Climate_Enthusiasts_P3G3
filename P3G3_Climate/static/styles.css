@@ -1,0 +1,77 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+}
+
+.data-container {
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+h2 {
+    margin-top: 0;
+}
+
+button {
+    padding: 8px 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#co2EmissionsData p,
+#temperatureData p,
+#co2EmissionsComparisonData p {
+    margin: 5px 0;
+}
+
+
+/* Map container */
+#map {
+    height: 400px;
+  }
+  
+  /* Data container */
+  .data-container {
+    margin-bottom: 20px;
+  }
+  
+  .data-container h2 {
+    margin: 10px 0;
+  }
+  
+  /* Styling for the data containers */
+  .data-container {
+    background-color: #f5f5f5;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  /* Styling for the chart container */
+  #temperatureChart {
+    height: 400px;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  #chart-container {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+  }
+  

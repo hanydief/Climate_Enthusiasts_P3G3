@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Climate Change Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css"/>
+
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
+   	<script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js'></script> 
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.2.2/dist/echarts.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+
+</head>
+<body>
+    <h1>Climate Dashboard</h1>
+
+    <div id='myDiv'> </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+    <div class="data-container">
+        <h2>Temperature Over Time</h2>
+        <div id="temperatureChart"></div>
+        <script src="https://d3js.org/d3.v5.min.js"></script>
+        <script src="{{ url_for('static', filename='script.js') }}"></script>
+    </div>
+
+    
+    <div class="data-container">
+        <h2>CO2 Emissions Data</h2>
+        <button onclick="getCO2Emissions()">Get CO2 Emissions</button>
+        <div id="co2EmissionsData"></div>
+    </div>
+
+    <div class="data-container">
+        <h2>Temperature Data</h2>
+        <button onclick="getTemperature()">Get Temperature</button>
+        <div id="temperatureData"></div>
+    </div>
+
+    <div class="data-container">
+        <h2>CO2 Emissions Comparison Data</h2>
+        <button onclick="compareCO2Emissions()">Compare CO2 Emissions</button>
+        <div id="co2EmissionsComparisonData"></div>
+    </div>
+
+    <div class="data-container">
+        <h2>Average Temprature per Country Change</h2>
+        <button onclick="avgSeasonTemperature()">Average Temperatures over time</button>
+        <div id="avg_temperature"></div>
+    </div>
+
+    <div class="data-container">
+        <h2>Average Season's Temprature per Country Change</h2>
+        <button onclick="avgSeasonTemp()">Average Season's Temperatures over time</button>
+        <div id="average_season_temp"></div>
+    </div>
+
+    <div class="data-container">
+        <h2> CO2 Emissions and Temprature Change</h2>
+        <button onclick="temperature_co2()">CO2 Emissions and Temprature Change</button>
+        <div id="temperature_co2"></div>
+    </div>
+
+    <!-- <div class="data-container">
+        <h2>Map</h2>
+        <div id="map"></div>
+        
+    </div> -->
+
+    
+    <!-- <div class="row">
+        <div class="col-md-12"> -->
+            <div class="well">
+                <h5>Country Name:</h5>
+                <select id="selDataset" onchange="optionChanged(this.value)"></select>
+            </div>
+        <!-- </div>
+    </div> -->
+    
+
+
+
+    <div id="temp_anomaly_race"></div>
+    <div id="chart-container"></div>
+    <script src="https://fastly.jsdelivr.net/npm/jquery"></script>
+    <script src="https://fastly.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+    
+</body>
+</html>
