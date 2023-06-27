@@ -18,9 +18,9 @@ app = Flask(__name__)
 #* on local have to build your database, notepad is available, & change the password)                  *#
 #*******************************************************************************************************#
 # local engine PgAdmin Postgresql:
-engine = create_engine('postgresql://postgres:Temo1632009$@localhost:5432/P3-Climate_Data')
+# engine = create_engine('postgresql://postgres:Temo1632009$@localhost:5432/P3-Climate_Data')
 # cloud engine elephant SQL Postgresql:
-# engine = create_engine('postgresql://dmsrzjin:HaCccW5jzQtSrHEp_0qYSwboRSJ_vtPd@mahmud.db.elephantsql.com/dmsrzjin')
+engine = create_engine('postgresql://dmsrzjin:HaCccW5jzQtSrHEp_0qYSwboRSJ_vtPd@mahmud.db.elephantsql.com/dmsrzjin')
 
 @app.route('/favion.ico')
 def favicon():
