@@ -33,13 +33,7 @@ def display_climate_data():
     # Execute a SQL query using the engine
     with engine.connect() as connection:
 
-            
         return render_template('indexh.html')
-    
-    return (
-        f"Welcome to Climate App Home API!<br/>"
-        f"********************************<br/>"
-    )
 
 # Create a route to display the temp data
 @app.route('/temp')
@@ -60,7 +54,6 @@ def temp_chart():
                
         return render_template('index.html')
     
-
 @app.route('/temperature')
 def temperature_chart():
     # Execute a SQL query using the engine
@@ -73,8 +66,7 @@ def temperature_chart():
             data.append(dict(row._asdict()))
         
         return data
-       
-
+    
 @app.route('/co2')
 def co2_emissions_chart():
     # Execute a SQL query using the engine
@@ -89,7 +81,6 @@ def co2_emissions_chart():
         
         return jsonify(co2_data)
     
-
 # Create a route to display the humidity data
 @app.route('/humidity')
 def humidity_chart():
@@ -103,7 +94,6 @@ def humidity_chart():
             humidity_data.append(dict(row._asdict()))
         
         return jsonify(humidity_data)
-
 
 # Create a route to display the sea level data
 @app.route('/sealevel')
