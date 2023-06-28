@@ -25,50 +25,8 @@
 
     <div id='myDiv'> </div>
     <script src="{{ url_for('static', filename='script.js') }}"></script>
-    <h5>Select a Year:</h5>
-    <select name="yearTemp" id="heatMap" onchange="optionHeat(this.value)">
-        {% for x in data[1] %} 
-        <option value="{{ x }}">{{ x }}</option>
-        {% endfor %}    
-    </select>
-    
+
    
-
-
-    <!-- <div class="data-container">
-        <h2>Map</h2>
-        <div id="map"></div>
-        
-    </div> -->
-
-    <div class="data-container">
-        <h2>Average Temperature Over Time</h2>
-        <div id="tempChart"></div>
-        <script src="https://d3js.org/d3.v5.min.js"></script>
-        <script src="{{ url_for('static', filename='script.js') }}"></script>
-    </div>
-
-    <div class="row">
-        <div class="col-md-12"> 
-            <div class="well">
-                <h5>Country Name:</h5>
-                <select id="selDataset" onchange="optionChanged(this.value)">
-                {% for x in data[0] %} 
-                <option value="{{ x }}">{{ x }}</option>
-                {% endfor %}
-                </select>
-                <script src="https://d3js.org/d3.v5.min.js"></script>
-                <script src="{{ url_for('static', filename='script.js') }}"></script>
-            </div>
-        </div>
-    </div>
-
-    <div class="data-container">
-        <h2>Temperature Over Time</h2>
-        <div id="temperatureChart"></div>
-        <script src="https://d3js.org/d3.v5.min.js"></script>
-        <script src="{{ url_for('static', filename='script.js') }}"></script>
-    </div>
 
     
     <div class="data-container">
@@ -105,6 +63,41 @@
         <h2> CO2 Emissions and Temprature Change</h2>
         <button onclick="temperature_co2()">CO2 Emissions and Temprature Change</button>
         <div id="temperature_co2"></div>
+    </div>
+
+    <!-- <div class="data-container">
+        <h2>Map</h2>
+        <div id="map"></div>
+        
+    </div> -->
+
+    <div class="data-container">
+        <h2>Average Temperature Over Time</h2>
+        <div id="tempChart"></div>
+        <script src="https://d3js.org/d3.v5.min.js"></script>
+        <script src="{{ url_for('static', filename='script.js') }}"></script>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12"> 
+            <div class="well">
+                <h5>Country Name:</h5>
+                <select id="selDataset" onchange="optionChanged(this.value)">
+                {% for x in data %} 
+                <option value="{{ x }}">{{ x }}</option>
+                {% endfor %}
+                </select>
+                <script src="https://d3js.org/d3.v5.min.js"></script>
+                <script src="{{ url_for('static', filename='script.js') }}"></script>
+            </div>
+        </div>
+    </div>
+
+    <div class="data-container">
+        <h2>Temperature Over Time</h2>
+        <div id="temperatureChart"></div>
+        <script src="https://d3js.org/d3.v5.min.js"></script>
+        <script src="{{ url_for('static', filename='script.js') }}"></script>
     </div>
 
 

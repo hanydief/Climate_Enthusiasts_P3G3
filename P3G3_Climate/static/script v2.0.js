@@ -166,9 +166,8 @@ function getTemperaturePlotly() {
 // getMapData();
 getTemperaturePlotly();
 
-// CHloropleth 
-function tempChloropleth(newYear) {
-d3.json(`/Heat/${newYear}`, function(err, rows){
+// d3.csv('https://raw.githubusercontent.com/plotly/datasets/master/2010_alcohol_consumption_by_country.csv', function(err, rows){
+d3.json('/Heat', function(err, rows){
         function unpack(rows, key) {
           return rows.map(function(row) { return row[key]; });
       }
@@ -181,10 +180,9 @@ d3.json(`/Heat/${newYear}`, function(err, rows){
         text: unpack(rows, 'Country'),
         autocolorscale: true
     }];
-    console.log('In function  New Year', newYear)
-    chlorTitle = `Average Temp in : ${newYear}`
+
     var layout = {
-      title: chlorTitle,
+      title: 'Average Temp in 1999',
       geo: {
           projection: {
               type: 'robinson'
@@ -195,15 +193,6 @@ d3.json(`/Heat/${newYear}`, function(err, rows){
     Plotly.newPlot("myDiv", data, layout, {showLink: false});
 
 });
-}
-
-tempChloropleth(2013);
-
-function optionHeat(newYear) {
-    console.log('running heat year change')
-    tempChloropleth(newYear)
-}
-
 
 // E chart 	up_bound	lo_bound
 // $.ajax({
@@ -473,7 +462,6 @@ function optionHeat(newYear) {
 // });
 
 
-
 function updateCharts(sample) {
     let myurl = '/temperature/average_temperature'
   d3.json(myurl).then(function (data) {
@@ -526,7 +514,6 @@ function buildCharts(sample) {
 
 function optionChanged(newSample) {
     updateCharts(newSample)
-
 }
 
 // function init() {

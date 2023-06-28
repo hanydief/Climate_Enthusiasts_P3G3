@@ -16,7 +16,16 @@ engine = create_engine('postgresql://dmsrzjin:HaCccW5jzQtSrHEp_0qYSwboRSJ_vtPd@m
 # Routes
 @app.route('/')
 def index():
-    return render_template('index.html')
+    c_query = 'SELECT country, avg(jan_temp) as jan_temp FROM temp_mo_1901_2021 GROUP BY country;'
+    c_data = engine.execute(c_query)
+    country_result = [row[0] for row in c_data]
+    
+    y_query = 'SELECT year, avg(jan_temp) as jan_temp FROM temp_mo_1901_2021 GROUP BY year ORDER BY year;'
+    y_data = engine.execute(y_query)
+    year_result = [row[0] for row in y_data]
+    
+    result = [country_result,year_result]
+    return render_template('index.html', data = result )
 
 @app.route('/co2_emissions')
 def get_co2_emissions():
@@ -161,20 +170,21 @@ def get_temperature_plotly():
     # Return the data as JSON
     return jsonify(result)
 
-@app.route('/Heat')
-def heat():
+@app.route('/Heat/<newYear>')
+def heat(newYear):
     # Query temperature data from the database
-    query = "SELECT country, \
+
+    query = f"SELECT country, \
         (jan_temp + feb_temp + mar_temp + apr_temp + may_temp + jun_temp + jul_temp + aug_temp + sep_temp + oct_temp + nov_temp + dec_temp) / 12 AS avg_temperature\
         FROM temp_mo_1901_2021\
-        WHERE year = 1999\
+        WHERE year = {newYear}\
         GROUP BY country,\
               jan_temp, feb_temp, mar_temp, apr_temp, may_temp, jun_temp, jul_temp, aug_temp, sep_temp, oct_temp, nov_temp, dec_temp\
         ORDER BY country ASC;"
     data = engine.execute(query)
-
+    print(query)
     # Convert the data to a dictionary format
-    result = [{'Country': row[0], 'Temperature': row[1] } for row in data]
+    result = [{'Country': row[0], 'Temperature': round(row[1],2) } for row in data]
 
     # Return the data as JSON 
     return jsonify(result)
