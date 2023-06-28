@@ -35,17 +35,23 @@ https://docs.google.com/presentation/d/1iqDcU6FGP9ofsdUX73cQ_7jqZDb_SMMXgz0V0N04
 5. Run the Flask application using `python P3_Flask.py`.
 6. Open your web browser and navigate to http://localhost:5000 to access the Climate App.
 
-## Functionality
+## Flask Routes / API Endpoints
+The flask application provides the following routes to fetch data for visualizations:
 
-The flask application provides the following routes to visualize climate data:
+- `/temp`: Returns the average temperature data for each year and country. The data is sorted in descending order of temperature and limited to the top 10 entries.
+- `/co2`: Returns the average CO2 emissions data for each year and country. The data is sorted in descending order of CO2 emissions and limited to the top 10 entries.
+- `/humidity`: Returns the average humidity data for each year and country. The data is sorted in descending order of humidity and limited to the top 10 entries.
+- `/sealevel`: Returns the average sea level rise data for each year and country. The data is sorted in descending order of sea level rise and limited to the top 10 entries.
+- `/temperatures`:  Returns the average temperature data for specific countries ('Finland', 'France', 'Germany', 'Iceland', 'Norway', 'Poland', 'Russia', 'United Kingdom') over the years. The data is grouped by year and country.
+- `/racebarco`: Returns the average CO2 emissions data for each year and country. The data is grouped by year and country.
+- `/pltmapco`: Returns the average CO2 emissions data for each country. The data is grouped by country.
 
-- `/temp`: Displays a bar chart of the average temperature by country and year.
-- `/co2`: Displays a bar chart of the average CO2 emissions by country and year.
-- `/humidity`: Displays a bar chart of the average humidity by country and year.
-- `/sealevel`: Displays a bar chart of the average sea level rise by country and year.
-- `/temperatures`: Displays a race bar chart of the average temperature by country and year.
-- `/racebarco`: Displays a race bar chart of the average CO2 emissions by country and year.
-- `/pltmapco`: Displays a map chart of the average CO2 emissions by country.
+## Visualization
+The flask application uses D3.js, ECharts, and Plotly to fetch and visualize the climate data. The code makes asynchronous requests to the Flask routes for temperature, CO2 emissions, humidity, and sea level data. The following visualizations are then created:
+- Bar charts: Displays the average temperature, CO2 emissions, humidity, and sea level rise data for the top 10 entries.
+- Race Line chart: Shows the temperature data for specific countries over the years.
+- Race bar chart: Compares the temperature and CO2 emissions data for different countries over the years.
+- Plotly map: Presents the average CO2 emissions data for each country.
 
 ## Project Structure
 `P3_Flask.py:` The main Flask application file that handles routing and serves the webpages. \
