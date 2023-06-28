@@ -2,7 +2,7 @@
 Climate change is a critical issue facing our planet, and understanding climate data is essential for monitoring and analyzing its impact. In this project, we explore a Flask web application that connects to a PostgreSQL database containing climate data. The application provides interactive visualizations to help us gain insights into temperature, CO2 emissions, humidity, and sea level rise.
 
 ## Data sources
-The climate change data used in this dashboard is sourced from https://www.kaggle.com/datasets/goyaladi/climate-insights-dataset?select=climate_change_data.csv.
+The climate change data used in this dashboard is sourced from: https://www.kaggle.com/datasets/goyaladi/climate-insights-dataset?select=climate_change_data.csv.
 
 ## Contributors
 - Nour Balhaj -- (@nourbalhaj)
