@@ -19,6 +19,7 @@ def index():
     c_query = 'SELECT country, avg(jan_temp) as jan_temp FROM temp_mo_1901_2021 GROUP BY country;'
     c_data = engine.execute(c_query)
     country_result = [row[0] for row in c_data]
+    country_result.sort()
     
     y_query = 'SELECT year, avg(jan_temp) as jan_temp FROM temp_mo_1901_2021 GROUP BY year ORDER BY year;'
     y_data = engine.execute(y_query)
@@ -106,17 +107,18 @@ def average_season_temp():
 @app.route('/temperature/temperature_co2')
 def temperature_co2():
     # Query -- average temperature per season per year
-    query = "SELECT temp_mo_1901_2021.year, temp_mo_1901_2021.country, co2_emissions.emissions,\
-		            (jan_temp + feb_temp + mar_temp + apr_temp + may_temp + jun_temp + jul_temp + aug_temp + sep_temp + oct_temp + nov_temp + dec_temp) / 12 AS avg_temperature\
-            FROM temp_mo_1901_2021, co2_emissions\
-            WHERE co2_emissions.entity = temp_mo_1901_2021.country\
-            GROUP BY country, co2_emissions.emissions,\
-                    temp_mo_1901_2021.year, jan_temp, feb_temp, mar_temp, apr_temp, may_temp, jun_temp, jul_temp, aug_temp, sep_temp, oct_temp, nov_temp, dec_temp\
-            ORDER BY Year, temp_mo_1901_2021.country;"
+    query = "SELECT co2_emissions.entity AS country, co2_emissions.year, co2_emissions.emissions,\
+                    (temp_mo_1901_2021.jan_temp + temp_mo_1901_2021.feb_temp + temp_mo_1901_2021.mar_temp + temp_mo_1901_2021.apr_temp + temp_mo_1901_2021.may_temp + temp_mo_1901_2021.jun_temp + temp_mo_1901_2021.jul_temp + temp_mo_1901_2021.aug_temp + temp_mo_1901_2021.sep_temp + temp_mo_1901_2021.oct_temp + temp_mo_1901_2021.nov_temp + temp_mo_1901_2021.dec_temp) / 12 AS avg_temperature\
+            FROM co2_emissions\
+            JOIN temp_mo_1901_2021 ON co2_emissions.entity = temp_mo_1901_2021.country AND co2_emissions.year = temp_mo_1901_2021.year\
+            ORDER BY co2_emissions.entity, co2_emissions.year;"
     data = engine.execute(query)
 
     # Convert the data to a dictionary format
-    result = [{'Year': row[0], 'Country': row[1], 'co2_emissions':row[2], 'avg_temperature':row[3]} for row in data]
+    # result = [{'Year': row[0], 'Country': row[1], 'co2_emissions':round(row[2],2), 'avg_temperature':round(row[3],2)} for row in data]
+    # result = [['co2_emissions', 'avg_temperature', 'country', 'year'] + [[round(row[2],0), round(row[3],2), row[0], row[1]] for row in data]]
+    result = [['co2_emissions', 'avg_temperature', 'avg_temperature', 'country', 'year']] + [[round((row[2]/100000),0), round(row[3],2), row[3],row[0], row[1]] for row in data]
+
 
     # Return the data as JSON
     return jsonify(result)
@@ -182,24 +184,25 @@ def heat(newYear):
               jan_temp, feb_temp, mar_temp, apr_temp, may_temp, jun_temp, jul_temp, aug_temp, sep_temp, oct_temp, nov_temp, dec_temp\
         ORDER BY country ASC;"
     data = engine.execute(query)
-    print(query)
+    
     # Convert the data to a dictionary format
     result = [{'Country': row[0], 'Temperature': round(row[1],2) } for row in data]
 
     # Return the data as JSON 
     return jsonify(result)
 
-@app.route('/temp_anomaly_race')
+@app.route('/temp_anomaly/')
 def get_temp_anomaly():
-    # Query temperature data from the database 		lo_bound
-    query = "SELECT * FROM wb_temp_anomaly;"
+    # Query temperature data from the database 
+    query = "SELECT * FROM wb_temp_anomaly WHERE year > 1920;"
     data = engine.execute(query)
 
     # Convert the data to a dictionary format
     # result = [{'region': row[0], 'year': row[1], 'avg_temp_anomaly': row[2], 'up_bound': row[3], 'lo_bound': row[4]} for row in data]
-    result = [['avg_temp_anomaly', 'up_bound', 'lo_bound', 'country', 'year']] + [[row[2], row[3], row[4],row[0], row[1]] for row in data]
+    # result = [['avg_temp_anomaly', 'up_bound', 'lo_bound', 'country', 'year']] + [[row[2], row[3], row[4],row[0], row[1]] for row in data]
 
-
+    result = [{'year':row[1],'country':row[0],'avg_temp_anomaly':round(row[2],2), 'up_bound': round(row[3],2), 'lo_bound': round(row[4],2)} for row in data]
+    
     # Return the data as JSON
     return result
 
